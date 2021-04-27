@@ -19,7 +19,7 @@ Route::get('/lang/{language}', 'LanguageController@setLanguage');
 //Route::get('/{get_catalog}/{get_catalog_page}', 'CatalogController@hotelType');
 
 Route::get('/', function () {
-  return redirect('ua/');
+  return redirect('ru/');
 });
 
 Route::get('/', 'LanguageController@setLanguage');
@@ -34,11 +34,10 @@ Route::group([
 		echo "</pre> ";*/
 		//exit;
 		//if()
-			Route::pattern('type', '(hotels|private_sector|pansionati|bazi_otdyha|mini_hoteli|shale|vip_rest|Rybalka|Korporative|nedorogie-hotels|best-hotels|sauna_banya_hotel)');
+			Route::pattern('type', '(hotels|private_sector|pansionati|bazi_otdyha|mini_hoteli|shale|vip_rest|rybalka|korporative|nedorogie-hotels|best-hotels|sauna_banya_hotel)');
 			Route::get('/', 'IndexController@index')->name('index');
-			Route::get('/{type}', 'TypeController@index')->name('index');
-			Route::get('/{get_catalog}', 'CatalogController@index');
-			Route::get('/{get_catalog}', 'CatalogController@index');
+			Route::get('/{type}', 'TypeController@index')->name('type');
+			Route::get('/{get_catalog}', 'CatalogController@index')->name('catalog');
 			Route::get('/{get_catalog}/info', 'CatalogController@info');
 			Route::get('/{get_catalog}/dosts', 'CatalogController@dosts');
 			Route::get('/{get_catalog}/dosts/{translit}', 'DostController@index');
